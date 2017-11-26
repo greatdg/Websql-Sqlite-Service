@@ -41,9 +41,11 @@ var SqlService = function () {
 
 		var object = opt.dbObject;
 		var id = opt.id;
+		var dbOptions = opt.dbOptions || null;
 
 		this.timeout =  opt.timeout || this.timeout;
-		this.db = object.openDatabase(id + ".db", "1.0", "Database", 200000);
+
+		this.db = dbOptions ? object.openDatabase(dbOptions) : object.openDatabase(id + ".db", "1.0", "Database", 200000);
 	};
 
 	this.execute = function(sql, value, type) {
