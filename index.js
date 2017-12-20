@@ -42,6 +42,11 @@ var SqlService = function () {
 		var object = opt.dbObject;
 		var id = opt.id;
 		var dbOptions = opt.dbOptions || null;
+		var debugMode = opt.debugMode || false;
+		var enablePromise = opt.enablePromise || false;
+
+		object.DEBUG(debugMode);			
+		object.enablePromise(enablePromise);				
 
 		this.timeout =  opt.timeout || this.timeout;
 
